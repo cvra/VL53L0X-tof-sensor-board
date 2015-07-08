@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /home/saladin/Documents/cvra/tof-sensor-board/tof-sensor-board.sch)
-    (date "Sam 04 Jul 2015 18:10:10 CEST")
+    (date "Mon 06 Jul 2015 19:17:39 CEST")
     (tool "Eeschema 0.201506262353+5832~23~ubuntu14.04.1-product")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -17,7 +17,7 @@
   (components
     (comp (ref U3)
       (value VL6180X)
-      (footprint _sensors:VL6180X)
+      (footprint _sensors:VL6180X_EdgeMount)
       (libsource (lib _sensors) (part VL6180X))
       (sheetpath (names /) (tstamps /))
       (tstamp 557B0DD7))
@@ -199,7 +199,7 @@
       (tstamp 5581048E))
     (comp (ref CONN1)
       (value SWD)
-      (footprint _connectors:_Pin2mm_5z)
+      (footprint _connectors:_SoldarPad2mm_5)
       (datasheet DOCUMENTATION)
       (libsource (lib _connectors) (part SWD))
       (sheetpath (names /) (tstamps /))
@@ -254,20 +254,6 @@
       (sheetpath (names /) (tstamps /))
       (tstamp 5580808C)))
   (libparts
-    (libpart (lib device) (part C)
-      (description "Unpolarized capacitor")
-      (footprints
-        (fp C?)
-        (fp C_????_*)
-        (fp C_????)
-        (fp SMD*_c)
-        (fp Capacitor*))
-      (fields
-        (field (name Reference) C)
-        (field (name Value) C))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
     (libpart (lib device) (part C_Small)
       (description "Unpolarized capacitor")
       (footprints
@@ -282,46 +268,6 @@
       (pins
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
-    (libpart (lib device) (part D_Schottky)
-      (description "Diode schottky")
-      (footprints
-        (fp D-Pak_TO252AA)
-        (fp Diode_*)
-        (fp *SingleDiode)
-        (fp *SingleDiode*)
-        (fp *_Diode_*))
-      (fields
-        (field (name Reference) D)
-        (field (name Value) D_Schottky))
-      (pins
-        (pin (num 1) (name K) (type passive))
-        (pin (num 2) (name A) (type passive))))
-    (libpart (lib device) (part F_Small)
-      (description Fuse)
-      (footprints
-        (fp CP*)
-        (fp SM*))
-      (fields
-        (field (name Reference) F)
-        (field (name Value) F_Small))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib device) (part LED)
-      (footprints
-        (fp LED-3MM)
-        (fp LED-5MM)
-        (fp LED-10MM)
-        (fp LED-0603)
-        (fp LED-0805)
-        (fp LED-1206)
-        (fp LEDV))
-      (fields
-        (field (name Reference) D)
-        (field (name Value) LED))
-      (pins
-        (pin (num 1) (name K) (type passive))
-        (pin (num 2) (name A) (type passive))))
     (libpart (lib device) (part R)
       (description Resistor)
       (footprints
@@ -330,17 +276,6 @@
       (fields
         (field (name Reference) R)
         (field (name Value) R))
-      (pins
-        (pin (num 1) (name ~) (type passive))
-        (pin (num 2) (name ~) (type passive))))
-    (libpart (lib device) (part R_Small)
-      (description Resistor)
-      (footprints
-        (fp Resistor_*)
-        (fp R_*))
-      (fields
-        (field (name Reference) R)
-        (field (name Value) R_Small))
       (pins
         (pin (num 1) (name ~) (type passive))
         (pin (num 2) (name ~) (type passive))))
@@ -476,20 +411,85 @@
         (pin (num 45) (name PB8) (type BiDi))
         (pin (num 46) (name PB9) (type BiDi))
         (pin (num 47) (name VSS_1) (type BiDi))
-        (pin (num 48) (name VDD_1) (type BiDi)))))
+        (pin (num 48) (name VDD_1) (type BiDi))))
+    (libpart (lib device) (part R_Small)
+      (description Resistor)
+      (footprints
+        (fp Resistor_*)
+        (fp R_*))
+      (fields
+        (field (name Reference) R)
+        (field (name Value) R_Small))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib device) (part C)
+      (description "Unpolarized capacitor")
+      (footprints
+        (fp C?)
+        (fp C_????_*)
+        (fp C_????)
+        (fp SMD*_c)
+        (fp Capacitor*))
+      (fields
+        (field (name Reference) C)
+        (field (name Value) C))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib device) (part F_Small)
+      (description Fuse)
+      (footprints
+        (fp CP*)
+        (fp SM*))
+      (fields
+        (field (name Reference) F)
+        (field (name Value) F_Small))
+      (pins
+        (pin (num 1) (name ~) (type passive))
+        (pin (num 2) (name ~) (type passive))))
+    (libpart (lib device) (part D_Schottky)
+      (description "Diode schottky")
+      (footprints
+        (fp D-Pak_TO252AA)
+        (fp Diode_*)
+        (fp *SingleDiode)
+        (fp *SingleDiode*)
+        (fp *_Diode_*))
+      (fields
+        (field (name Reference) D)
+        (field (name Value) D_Schottky))
+      (pins
+        (pin (num 1) (name K) (type passive))
+        (pin (num 2) (name A) (type passive))))
+    (libpart (lib device) (part LED)
+      (footprints
+        (fp LED-3MM)
+        (fp LED-5MM)
+        (fp LED-10MM)
+        (fp LED-0603)
+        (fp LED-0805)
+        (fp LED-1206)
+        (fp LEDV))
+      (fields
+        (field (name Reference) D)
+        (field (name Value) LED))
+      (pins
+        (pin (num 1) (name K) (type passive))
+        (pin (num 2) (name A) (type passive)))))
   (libraries
-    (library (logical device)
-      (uri /usr/share/kicad/library/device.lib))
-    (library (logical Comp2014)
-      (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/Comp2014.lib))
     (library (logical _connectors)
       (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/_connectors.lib))
     (library (logical _div)
       (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/_div.lib))
+    (library (logical _stm32)
+      (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/_stm32.lib))
     (library (logical _sensors)
       (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/_sensors.lib))
-    (library (logical _stm32)
-      (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/_stm32.lib)))
+    (library (logical Comp2014)
+      (uri /home/saladin/Documents/cvra/tof-sensor-board/kicad-lib/components/Comp2014.lib))
+    (library (logical device)
+      (uri /usr/share/kicad/library/device.lib)))
   (nets
     (net (code 1) (name /I2C_SCL)
       (node (ref U1) (pin 32))
