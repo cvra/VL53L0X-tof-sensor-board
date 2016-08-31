@@ -8,4 +8,5 @@
   (lib (name beaglebone)(type Legacy)(uri "$(KIPRJMOD)/kicad-lib/footprints/beaglebone.mod")(options "")(descr ""))
   (lib (name Carte2014)(type Legacy)(uri "$(KIPRJMOD)/kicad-lib/footprints/Carte2014.mod")(options "")(descr ""))
   (lib (name cvra)(type Legacy)(uri "$(KIPRJMOD)/kicad-lib/footprints/cvra.mod")(options "")(descr ""))
+  (lib (name _logo)(type KiCad)(uri "$(KIPRJMOD)/kicad-lib/footprints/_logo.pretty")(options "")(descr ""))
 )
